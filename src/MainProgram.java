@@ -1,4 +1,4 @@
-import my_project.control.ServerControll;
+import my_project.control.ViewControll;
 
 public class MainProgram {
 
@@ -12,6 +12,6 @@ public class MainProgram {
      */
     public static void main (String[] args){
         //MainController.startFramework(Config.IS_SCENARIO_MODE);
-        new ServerControll();
+        new ViewControll();
     }
 }

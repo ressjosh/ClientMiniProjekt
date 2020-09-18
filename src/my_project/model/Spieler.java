@@ -4,8 +4,8 @@ public class Spieler {
     private String name;
     private String meineAuswahl;
 
-    public Spieler() {
-
+    public Spieler(String name) {
+        this.name = name;
     }
 
     public void setName(String name) {

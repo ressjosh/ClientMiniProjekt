@@ -14,7 +14,7 @@ public class ProgramController {
 
 
     // Referenzen
-    private ServerControll gC;
+    private ViewControll gC;
     private ViewController viewController;  // diese Referenz soll auf ein Objekt der Klasse viewController zeigen. Über dieses Objekt wird das Fenster gesteuert.
 
     /**
@@ -32,7 +32,7 @@ public class ProgramController {
      * Diese Methode wird genau ein mal nach Programmstart aufgerufen. Achtung: funktioniert nicht im Szenario-Modus
      */
     public void startProgram() {
-        gC = new ServerControll();
+        gC = new ViewControll();
 
     }
 

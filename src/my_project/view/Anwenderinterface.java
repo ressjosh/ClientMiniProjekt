@@ -12,6 +12,7 @@ public class Anwenderinterface {
     private JPanel mainPanel;
     private JButton sendButton;
     private JLabel derGegner;
+    private JLabel siegOderNiederlage;
     private JButton startButton;
     private JTextPane textPane1;
     private ViewControll vC;
@@ -29,7 +30,7 @@ public class Anwenderinterface {
         sendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                vC.verarbeiteNachricht(textField1.getText());
             }
         });
     }

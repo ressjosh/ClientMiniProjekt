@@ -17,7 +17,6 @@ public class ClientInterface {
     private JTextField messageField;
     private JButton sendButton;
     private JTextPane receivedField;
-    private JButton closeButton;
     private ViewControll vC;
     private SpielClient myClient;
 
@@ -27,7 +26,7 @@ public class ClientInterface {
         frame.setContentPane(mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        frame.setVisible(false);
+        frame.setVisible(true);
         frame.setBounds(600,300,400,300);
 
         connectButton.addActionListener(new ActionListener() {
@@ -35,18 +34,11 @@ public class ClientInterface {
             public void actionPerformed(ActionEvent actionEvent) {
                 if(remoteIPText.getText() != null && portTextField != null && nameTextField.getText() != null){
                     try{
-                        vC.erstelleClient(remoteIPText.getText(), Integer.parseInt(portTextField.getText()));
+                        vC.erstelleClient(remoteIPText.getText(), Integer.parseInt(portTextField.getText()), nameTextField.getText());
                     }catch(NumberFormatException e){
                         System.out.println(e.getMessage());
                     }
                 }
-            }
-        });
-
-        sendButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                vC.leiteNachrichtAnServer(nameTextField.getText() + ": " + messageField.getText());
             }
         });
     }
