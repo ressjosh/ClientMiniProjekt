@@ -13,11 +13,16 @@ public class SpielClient extends Client {
         super(serverIP,serverPort);
         myControll = controll;
         meinSpieler = new Spieler(name);
+        String test = "wurst$peter";
+        aktuelleKommandos = test.split("\\$");
+        System.out.println(aktuelleKommandos[0]);
     }
     @Override
     //Hier kommt die Nachricht an, muss aufgesplittet werden
     public void processMessage(String pMessage) {
-        aktuelleKommandos = pMessage.split("$");
+        String test = "wurst$peter";
+        aktuelleKommandos = test.split("$");
+        System.out.println(aktuelleKommandos[0]);
         arbeiteKommandoAb();
     }
 
@@ -32,7 +37,8 @@ public class SpielClient extends Client {
             meinSpieler.setGewonneneRunden(Integer.parseInt(aktuelleKommandos[1]));
         }else if(aktuelleKommandos[0].equals("sende")){
             if(aktuelleKommandos[1].equals("name")){
-                send(meinSpieler.getName());
+                send("name$"+meinSpieler.getName());
+                System.out.println("Hello");
             }else if(aktuelleKommandos[1].equals("möglichkeiten")){
                 if(meinSpieler.getMeineAuswahl() != null){
                     send("spiele$"+meinSpieler.getMeineAuswahl());
