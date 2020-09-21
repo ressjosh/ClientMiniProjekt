@@ -11,11 +11,13 @@ public class ViewControll {
     private SpielClient tC;
     private Anwenderinterface a;
     private Spieler spieler;
+    private boolean erwarteEingabe;
 
 
     public ViewControll() {
         i = new ClientInterface(this);
         a = new Anwenderinterface(this);
+        erwarteEingabe = false;
     }
 
 
@@ -58,5 +60,17 @@ public class ViewControll {
         }else if(auswahl.equals("tornado")){
             spieler.setMeineAuswahl("e");
         }
+
+        if(erwarteEingabe){
+            tC.send(spieler.getMeineAuswahl());
+        }
+    }
+
+    public void setErwarteEingabe(boolean erwarteEingabe) {
+        this.erwarteEingabe = erwarteEingabe;
+    }
+
+    public void aktualisiereMeineAnzeige(){
+
     }
 }
