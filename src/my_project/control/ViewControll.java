@@ -71,9 +71,13 @@ public class ViewControll {
     }
 
     public void aktualisiereMeineAnzeige(){
-        a.setDerGegner(spieler.getMeinGegener());
+        if(spieler.getMeinGegener() != null){
+            a.setDerGegner(spieler.getMeinGegener());
+        }else a.setDerGegner("");
         a.setSiege(String.valueOf(spieler.getGewonneneRunden()));
-        a.setGegnerAuswahl(spieler.getAuswahlGegner());
+        if(spieler.getAuswahlGegner() != null){
+            a.setGegnerAuswahl(spieler.getAuswahlGegner());
+        }else a.setGegnerAuswahl("");
         if(spieler.getAuswahlGegner().equals("A")){
             a.setGegnerAuswahl("stein");
         }else if(spieler.getAuswahlGegner().equals("B")){
