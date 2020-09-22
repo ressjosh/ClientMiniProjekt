@@ -50,15 +50,15 @@ public class ViewControll {
 
     public void verarbeiteNachricht(String auswahl){
         if(auswahl.equals("stein")){
-            spieler.setMeineAuswahl("a");
+            spieler.setMeineAuswahl("A");
         }else if(auswahl.equals("schere")){
-            spieler.setMeineAuswahl("b");
+            spieler.setMeineAuswahl("B");
         }else if(auswahl.equals("papier")){
-            spieler.setMeineAuswahl("c");
+            spieler.setMeineAuswahl("C");
         }else if(auswahl.equals("brunnen")){
-            spieler.setMeineAuswahl("d");
+            spieler.setMeineAuswahl("D");
         }else if(auswahl.equals("tornado")){
-            spieler.setMeineAuswahl("e");
+            spieler.setMeineAuswahl("E");
         }
 
         if(erwarteEingabe){
@@ -71,6 +71,23 @@ public class ViewControll {
     }
 
     public void aktualisiereMeineAnzeige(){
+        a.setDerGegner(spieler.getMeinGegener());
+        a.setSiege(String.valueOf(spieler.getGewonneneRunden()));
+        a.setGegnerAuswahl(spieler.getAuswahlGegner());
+        if(spieler.getAuswahlGegner().equals("A")){
+            a.setGegnerAuswahl("stein");
+        }else if(spieler.getAuswahlGegner().equals("B")){
+            a.setGegnerAuswahl("schere");
+        }else if(spieler.getAuswahlGegner().equals("C")){
+            a.setGegnerAuswahl("papier");
+        }else if(spieler.getAuswahlGegner().equals("D")){
+            a.setGegnerAuswahl("brunnen");
+        }else if(spieler.getAuswahlGegner().equals("E")){
+            a.setGegnerAuswahl("tornado");
+        }
 
+        if(spieler.getLetzteRundeErgebnis() != null){
+            a.setEndergebnis(spieler.getLetzteRundeErgebnis());
+        }
     }
 }

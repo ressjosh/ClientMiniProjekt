@@ -13,6 +13,9 @@ public class Anwenderinterface {
     private JButton sendButton;
     private JLabel derGegner;
     private JLabel siegOderNiederlage;
+    private JLabel Siege;
+    private JLabel GegnerAuswahl;
+    private JLabel Endergebnis;
     private JButton startButton;
     private JTextPane textPane1;
     private ViewControll vC;
@@ -39,7 +42,19 @@ public class Anwenderinterface {
         fenster.setVisible(b);
     }
 
-    public void updateNachrichten(String s){
-        textPane1.setText(textPane1.getText()+ "\n" + s);
+    public void setDerGegner(String s) {
+        derGegner.setText(s);
+    }
+
+    public void setSiege(String siege) {
+        Siege.setText(siege);
+    }
+
+    public void setGegnerAuswahl(String gegnerAuswahl) {
+        GegnerAuswahl.setText(gegnerAuswahl);
+    }
+
+    public void setEndergebnis(String s){
+        Endergebnis.setText(s);
     }
 }

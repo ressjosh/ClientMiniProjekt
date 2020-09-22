@@ -5,6 +5,8 @@ public class Spieler {
     private String meineAuswahl;
     private int gewonneneRunden;
     private String letzteRundeErgebnis;
+    private String meinGegener;
+    private String auswahlGegner;
 
 
     public Spieler(String name) {
@@ -48,5 +50,27 @@ public class Spieler {
 
     public String getLetzteRundeErgebnis() {
         return letzteRundeErgebnis;
+    }
+
+    public void setMeinGegener(String meinGegener) {
+        this.meinGegener = meinGegener;
+    }
+
+    public void setAuswahlGegner(String auswahlGegner) {
+        this.auswahlGegner = auswahlGegner;
+    }
+
+    public String getMeinGegener() {
+        return meinGegener;
+    }
+
+    public String getAuswahlGegner() {
+        return auswahlGegner;
+    }
+
+    public void setzeParameterZurueck(){
+        meineAuswahl = null;
+        meinGegener = null;
+        meineAuswahl = null;
     }
 }

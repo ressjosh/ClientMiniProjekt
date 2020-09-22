@@ -13,28 +13,26 @@ public class SpielClient extends Client {
         super(serverIP,serverPort);
         myControll = controll;
         meinSpieler = new Spieler(name);
-        String test = "wurst$peter";
-        aktuelleKommandos = test.split("\\$");
-        System.out.println(aktuelleKommandos[0]);
+        myControll.setSpieler(meinSpieler);
     }
+
     @Override
     //Hier kommt die Nachricht an, muss aufgesplittet werden
     public void processMessage(String pMessage) {
-        String test = "wurst$peter";
-        aktuelleKommandos = test.split("$");
-        System.out.println(aktuelleKommandos[0]);
+        aktuelleKommandos = pMessage.split("//$");
         arbeiteKommandoAb();
     }
 
     public void arbeiteKommandoAb(){
         if(aktuelleKommandos[0].equals("gegner")){
             if(aktuelleKommandos[1].equals("name")){
-
+                meinSpieler.setMeinGegener(aktuelleKommandos[2]);
             }else if(aktuelleKommandos[1].equals("auswahl")){
-
+                meinSpieler.setAuswahlGegner(aktuelleKommandos[2]);
             }
         }else if(aktuelleKommandos[0].equals("punkte")){
             meinSpieler.setGewonneneRunden(Integer.parseInt(aktuelleKommandos[1]));
+            meinSpieler.setzeParameterZurueck();
         }else if(aktuelleKommandos[0].equals("sende")){
             if(aktuelleKommandos[1].equals("name")){
                 send("name$"+meinSpieler.getName());
@@ -49,6 +47,7 @@ public class SpielClient extends Client {
         }else if(aktuelleKommandos[0].equals("status")){
             meinSpieler.setLetzteRundeErgebnis(aktuelleKommandos[1]);
         }
+        myControll.aktualisiereMeineAnzeige();
     }
 
 }
