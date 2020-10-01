@@ -12,7 +12,10 @@ public class Spieler {
     public Spieler(String name) {
         this.name = name;
         gewonneneRunden = 0;
-        meineAuswahl = null;
+        meineAuswahl = "";
+        auswahlGegner = "";
+        meinGegener = "";
+        letzteRundeErgebnis = "";
     }
 
     public void setName(String name) {
@@ -69,8 +72,8 @@ public class Spieler {
     }
 
     public void setzeParameterZurueck(){
-        meineAuswahl = null;
-        meinGegener = null;
-        meineAuswahl = null;
+        meineAuswahl = "";
+        meinGegener = "";
+        meineAuswahl = "";
     }
 }
