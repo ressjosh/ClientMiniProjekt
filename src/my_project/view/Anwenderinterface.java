@@ -19,6 +19,8 @@ public class Anwenderinterface {
     private JButton startButton;
     private JTextPane textPane1;
     private ViewControll vC;
+    private ImageIcon v;
+    
 
     public Anwenderinterface(ViewControll vC){
         this.vC = vC;
@@ -28,6 +30,7 @@ public class Anwenderinterface {
         fenster.pack();
         fenster.setVisible(false);
         fenster.setBounds(400,300,400,300);
+
 
 
         sendButton.addActionListener(new ActionListener() {

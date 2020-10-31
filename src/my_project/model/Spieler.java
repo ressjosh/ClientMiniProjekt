@@ -1,21 +1,36 @@
 package my_project.model;
 
+import KAGO_framework.model.abitur.datenstrukturen.Queue;
+
 public class Spieler {
     private String name;
     private String meineAuswahl;
-    private int gewonneneRunden;
     private String letzteRundeErgebnis;
     private String meinGegener;
     private String auswahlGegner;
+    private Queue<String> alleSpieler;
 
 
     public Spieler(String name) {
         this.name = name;
-        gewonneneRunden = 0;
         meineAuswahl = "";
         auswahlGegner = "";
         meinGegener = "";
         letzteRundeErgebnis = "";
+        alleSpieler = new Queue<>();
+    }
+
+
+    public void setAlleSpieler(String nameUndPunkte){
+        alleSpieler.enqueue(nameUndPunkte);
+    }
+
+    public void entferneEinenSpieler(){
+        alleSpieler.dequeue();
+    }
+
+    public boolean nochSpielerFurRanking(){
+        return alleSpieler.isEmpty();
     }
 
     public void setName(String name) {
@@ -34,27 +49,6 @@ public class Spieler {
         return meineAuswahl;
     }
 
-
-    public void setGewonneneRunden(int gewonneneRunden) {
-        this.gewonneneRunden = gewonneneRunden;
-    }
-
-    public void setLetzteRundeErgebnis(String letzteRundeErgebnis) {
-        this.letzteRundeErgebnis = letzteRundeErgebnis;
-    }
-
-    public void setzeMeineParameter(String letzteRundeErgebnis){
-
-    }
-
-    public int getGewonneneRunden() {
-        return gewonneneRunden;
-    }
-
-    public String getLetzteRundeErgebnis() {
-        return letzteRundeErgebnis;
-    }
-
     public void setMeinGegener(String meinGegener) {
         this.meinGegener = meinGegener;
     }
@@ -71,9 +65,4 @@ public class Spieler {
         return auswahlGegner;
     }
 
-    public void setzeParameterZurueck(){
-        meineAuswahl = "";
-        meinGegener = "";
-        meineAuswahl = "";
-    }
 }
