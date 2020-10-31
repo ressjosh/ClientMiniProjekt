@@ -8,13 +8,15 @@ public class ViewControll {
 
     private SpielClient spielClient;
     private Spieler spieler;
+    private GameControll gC;
 
-    public ViewControll() {
+    public ViewControll(GameControll gameControll) {
         new Verbindungsaufbau(this);
+        gC = gameControll;
     }
 
     public void verbindungZumServerSuchen(String ip, int port){
-
+        gC.erstelleClient(ip, port);
     }
 
     public void setSpieler(Spieler spieler) {

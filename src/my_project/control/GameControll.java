@@ -5,6 +5,11 @@ import my_project.model.SpielClient;
 public class GameControll {
 
     private SpielClient spielClient;
+    private ViewControll vC;
+
+    public GameControll(){
+        vC = new ViewControll(this);
+    }
 
     public void erstelleClient(String serverIP, int serverPort){
         try {
