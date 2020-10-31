@@ -20,6 +20,8 @@ public class SpielClient extends Client {
     //Hier kommt die Nachricht an, muss aufgesplittet werden
     public void processMessage(String pMessage) {
         aktuelleKommandos = pMessage.split("//$");
+        System.out.println("AktuelleNachricht vom Server: ");
+        System.out.println(pMessage);
         arbeiteKommandoAb();
     }
 
