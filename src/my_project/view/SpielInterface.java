@@ -31,8 +31,6 @@ public class SpielInterface {
         fenster.setVisible(false);
         fenster.setBounds(400,300,400,300);
 
-
-
         sendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {

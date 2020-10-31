@@ -34,7 +34,7 @@ public class ViewControll {
 
     public void nameFensterStart(){
         verbindungsaufbau.setFensterVisible(false);
-        //TODO Anwendungsstart
+        anwendungsstart.setVisibility(true);
     }
 
     public void auswahlKannGesendetWerden(){
@@ -44,7 +44,7 @@ public class ViewControll {
     public void draussen(String grund){
         verbindungsaufbau.setFensterVisible(true);
         spielInterface.setFensterVisible(false);
-        //TODO Anwendungsstart
+        anwendungsstart.setVisibility(false);
         JOptionPane.showMessageDialog(null,grund);
     }
 
@@ -53,7 +53,8 @@ public class ViewControll {
     }
 
     public void zeitUpdate(String zeit){
-        //TODO Zeit bla bla bla
+        if (anwendungsstart.sichtbar()) anwendungsstart.setTimer(zeit);
+        //TODO SPIELINTERFACE TIMER
     }
 
 }

@@ -13,6 +13,7 @@ public class SpielClient extends Client {
         super(serverIP,serverPort);
         myControll = controll;
         meinSpieler = new Spieler();
+        myControll.setSpieler(meinSpieler);
     }
 
     @Override
