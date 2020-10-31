@@ -13,13 +13,9 @@ public class ViewControll {
         new Verbindungsaufbau(this);
     }
 
-   /*public void erstelleClient(String serverIP, int serverPort){
-        try {
-            spielClient = new SpielClient(serverIP, serverPort, this, name);
-        }catch(Exception e){
-            System.out.println("Dieser Server existiert leider nicht");
-        }
-   }*/
+    public void verbindungZumServerSuchen(String ip, int port){
+
+    }
 
     public void setSpieler(Spieler spieler) {
         this.spieler = spieler;

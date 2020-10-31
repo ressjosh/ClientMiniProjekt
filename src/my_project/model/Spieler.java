@@ -11,8 +11,7 @@ public class Spieler {
     private Queue<String> alleSpieler;
 
 
-    public Spieler(String name) {
-        this.name = name;
+    public Spieler() {
         meineAuswahl = "";
         auswahlGegner = "";
         meinGegener = "";
