@@ -20,17 +20,13 @@ public class Verbindungsaufbau {
     private JTextField portTextField;
     private JButton connectButton;
     private JLabel aufforderung;
+    private JLabel ipLabel;
+    private JLabel portLabel;
     private ViewControll vC;
     private Font ueberschrift;
-    private BufferedImage hintergrundbild;
-    private ImageIcon ii;
 
     public Verbindungsaufbau(ViewControll vC){
         this.vC = vC;
-        /*ii = new ImageIcon(getClass().getResource("informatikbild.jpg"));
-        Graphics g = ii.getImage().getGraphics();
-        aufforderung.setIcon(ii);
-*/
         ueberschrift = new Font("Arial", Font.ITALIC, 20);
         aufforderung.setFont(ueberschrift);
         frame = new JFrame("Spieler-Client");
@@ -38,7 +34,7 @@ public class Verbindungsaufbau {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        frame.setBounds(600,300,400,300);
+        frame.setBounds(600,300,450,300);
 
 
         connectButton.addActionListener(new ActionListener() {
@@ -46,12 +42,27 @@ public class Verbindungsaufbau {
             public void actionPerformed(ActionEvent actionEvent) {
                     try{
                         vC.verbindungZumServerSuchen(remoteIPText.getText(), Integer.parseInt(portTextField.getText()));
+                        System.out.println("Verbindung zum Server wurde aufgebaut, warten auf weitere Weisungen");
+                        System.out.println("..........................................");
+                        aktiviereWarteBereich();
                     }catch(NumberFormatException e){
                         System.out.println(e.getMessage());
 
                 }
             }
         });
+
+
+    }
+    private void aktiviereWarteBereich(){
+        aufforderung.setText("Herzlich Willkommen im Spiel");
+        connectButton.setVisible(false);
+        ipLabel.setFont(ueberschrift);
+        ipLabel.setText("Warte auf Rückmeldung.....");
+        remoteIPText.setVisible(false);
+        portTextField.setVisible(false);
+        portLabel.setVisible(false);
+        portLabel.setVisible(false);
     }
 
     public void setFensterVisible(boolean b){
