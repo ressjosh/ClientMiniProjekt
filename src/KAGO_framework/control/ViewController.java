@@ -70,7 +70,7 @@ public class ViewController implements ActionListener, KeyListener, MouseListene
         if ( Config.INFO_MESSAGES) System.out.println("-------------------------------------------------------------------------------------------------\n");
         if ( Config.INFO_MESSAGES) System.out.println("** Ab hier folgt das Log zum laufenden Programm: **");
         if(my_project.Config.useSound){
-            soundController = new SoundController();
+            //soundController = new SoundController();
         } else {
             if ( Config.INFO_MESSAGES) System.out.println("** Achtung! Sound deaktiviert => soundController ist NULL (kann in Config geändert werden). **");
         }
@@ -158,9 +158,9 @@ public class ViewController implements ActionListener, KeyListener, MouseListene
         }
     }
 
-    public SoundController getSoundController(){
+    /*public SoundController getSoundController(){
         return soundController;
-    }
+    }*/
 
     /**
      * Zeichnet und aktualisiert ein neues Objekt in der gewünschten Szene
@@ -269,7 +269,7 @@ public class ViewController implements ActionListener, KeyListener, MouseListene
         // Zeichne alle Objekte der aktuellen Szene
         scenes.get(currentScene).drawingPanel.repaint();
         // Aktualisiere SoundController, wenn vorhanden
-        if(soundController != null) soundController.update(dt);
+        //if(soundController != null) soundController.update(dt);
     }
 
     /**
@@ -283,7 +283,7 @@ public class ViewController implements ActionListener, KeyListener, MouseListene
             Drawable currentObject = drawIterator.next();
             currentObject.draw(drawTool);
             currentObject.update((double)dt/1000);
-            if (my_project.Config.useSound && soundController != null) soundController.update((double)dt/1000);
+            //if (my_project.Config.useSound && soundController != null) soundController.update((double)dt/1000);
         }
     }
 

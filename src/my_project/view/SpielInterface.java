@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Anwenderinterface {
+public class SpielInterface {
     private JFrame fenster;
     private JTextField textField1;
     private JPanel mainPanel;
@@ -22,7 +22,7 @@ public class Anwenderinterface {
     private ImageIcon v;
     
 
-    public Anwenderinterface(ViewControll vC){
+    public SpielInterface(ViewControll vC){
         this.vC = vC;
         fenster = new JFrame("Das Spiel, bitte triff deine Auswahl");
         fenster.setContentPane(mainPanel);
@@ -36,7 +36,7 @@ public class Anwenderinterface {
         sendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                vC.verarbeiteNachricht(textField1.getText());
+
             }
         });
     }

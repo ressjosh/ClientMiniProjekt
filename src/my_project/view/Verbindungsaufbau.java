@@ -4,24 +4,24 @@ import my_project.control.ViewControll;
 import my_project.model.SpielClient;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ClientInterface {
+public class Verbindungsaufbau {
     private JFrame frame;
     private JPanel mainPanel;
-    private JTextField nameTextField;
     private JTextField remoteIPText;
     private JTextField portTextField;
     private JButton connectButton;
-    private JTextField messageField;
-    private JButton sendButton;
-    private JTextPane receivedField;
+    private JLabel aufforderung;
     private ViewControll vC;
-    private SpielClient myClient;
+    private Font ueberschrift;
 
-    public ClientInterface(ViewControll vC){
+    public Verbindungsaufbau(ViewControll vC){
         this.vC = vC;
+        ueberschrift = new Font("Arial", Font.ITALIC, 20);
+        aufforderung.setFont(ueberschrift);
         frame = new JFrame("Spieler-Client");
         frame.setContentPane(mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -32,12 +32,11 @@ public class ClientInterface {
         connectButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                if(remoteIPText.getText() != null && portTextField != null && nameTextField.getText() != null){
                     try{
-                        vC.erstelleClient(remoteIPText.getText(), Integer.parseInt(portTextField.getText()), nameTextField.getText());
+                        //vC.erstelleClient(remoteIPText.getText(), Integer.parseInt(portTextField.getText()));
                     }catch(NumberFormatException e){
                         System.out.println(e.getMessage());
-                    }
+
                 }
             }
         });
@@ -45,14 +44,5 @@ public class ClientInterface {
 
     public void setFensterVisible(boolean b){
         frame.setVisible(b);
-    }
-
-    public void updateDarstellung(String s){
-        receivedField.setText(receivedField.getText()+ "\n" + s);
-        messageField.setText(null);
-    }
-
-    public String getMessage(){
-        return messageField.getText();
     }
 }

@@ -1,7 +1,7 @@
 package KAGO_framework.control;
 
 import KAGO_framework.model.Sound;
-import javafx.embed.swing.JFXPanel;
+
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ public class SoundController {
      * Kapselt die nötigen Daten für Sounds, die noch geladen werden
      * müssen.
      */
-    private class SoundData{
+    /*private class SoundData{
 
         String filename, name;
         boolean playLooped;
@@ -47,6 +47,7 @@ public class SoundController {
      * Objekte nötig, um alle Sounds zu verwalten. Der SoundController sollte
      * so früh wie möglich initialisiert werden.
      */
+    /*
     public SoundController() {
         started = false;
         initialized = false;
@@ -73,6 +74,7 @@ public class SoundController {
      * Sorgt für ein zeitverzögertes Laden der Sounds, damit berücksichtigt wird,
      * dass der JavaFX ggf. nicht sofort verfügbar ist.
      */
+    /*
     public void update(double dt){
         if (initialized){
             if(!started){
@@ -94,6 +96,7 @@ public class SoundController {
      * @param name Der Name unter dem der Sound im Programm verwendet werden soll. Er muss EINDEUTIG sein.
      * @param playLooped Ob der Sound wiederholt werden soll, wenn er fertig gespielt ist.
      */
+    /*
     public void loadSound(String filename, String name, boolean playLooped){
         soundsToLoad.add(new SoundData(filename,name,playLooped));
     }
@@ -104,6 +107,7 @@ public class SoundController {
      * @param name Der Name unter dem der Sound im Programm verwendet werden soll. Er muss EINDEUTIG sein.
      * @param playLooped Ob der Sound wiederholt werden soll, wenn er fertig gespielt ist.
      */
+    /*
     private void loadNewSound(String filename, String name, boolean playLooped){
         if(initialized) {
             boolean isNotLoaded = true;
@@ -132,6 +136,7 @@ public class SoundController {
      * Spielt einen Sound (ggf. wiederholt) ab. Wenn der Sound bereits läuft, wird er zuvor gestoppt.
      * @param name Der beim Anlegen des Sounds vergebene, eindeutige Name.
      */
+    /*
     public void playSound(String name){
         if (initialized) {
             Iterator<Sound> iterator = loadedSounds.iterator();
@@ -153,6 +158,7 @@ public class SoundController {
      * Hält den Sound an und setzt ihn auf den Anfang zurück.
      * @param name Der beim Anlegen des Sounds vergebene, eindeutige Name.
      */
+    /*
     public void stopSound(String name){
         if(isPlaying(name)) {
             Iterator<Sound> iterator = loadedSounds.iterator();
@@ -171,6 +177,7 @@ public class SoundController {
      * @param name der eindeutige Name des Sounds
      * @return true, falls der Sound gerade abgespielt wird, sonst false
      */
+    /*
     public boolean isPlaying(String name){
         Iterator<Sound> iterator = loadedSounds.iterator();
         while (iterator.hasNext()) {
@@ -181,5 +188,7 @@ public class SoundController {
         }
         return false;
     }
+    */
+
 
 }
