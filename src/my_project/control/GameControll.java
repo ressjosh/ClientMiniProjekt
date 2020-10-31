@@ -18,4 +18,24 @@ public class GameControll {
             System.out.println("Dieser Server existiert leider nicht");
         }
    }
+
+   public void nameKannGesendetWerden(){
+        vC.nameFensterStart();
+   }
+
+   public void auswahlKannGesendetWerden(){
+        vC.auswahlKannGesendetWerden();
+   }
+
+   public void draussen(String grund){
+        vC.draussen(grund);
+   }
+
+   public void aussetzen(){
+        vC.aussetzen();
+   }
+
+   public void zeitUpdate(String zeit){
+        vC.zeitUpdate(zeit);
+   }
 }

@@ -3,7 +3,16 @@ package my_project.view;
 import javax.swing.*;
 import java.awt.*;
 
+import my_project.control.ViewControll;
+
 public class Anwendungsstart {
+    private ViewControll vC;
+
+    public Anwendungsstart(ViewControll vC){
+        this.vC = vC;
+    }
+
+
     private JFrame frame;
     private JButton charakter01;
     private JButton charakter02;
