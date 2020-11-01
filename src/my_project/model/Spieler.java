@@ -2,6 +2,8 @@ package my_project.model;
 
 import KAGO_framework.model.abitur.datenstrukturen.Queue;
 
+import java.awt.*;
+
 public class Spieler {
     private String name;
     private String meineAuswahl;
@@ -9,7 +11,7 @@ public class Spieler {
     private String meinGegener;
     private String auswahlGegner;
     private Queue<String> alleSpieler;
-
+    private Image myImage;
 
     public Spieler() {
         meineAuswahl = "";
@@ -62,6 +64,14 @@ public class Spieler {
 
     public String getAuswahlGegner() {
         return auswahlGegner;
+    }
+
+    public void setMyImage(Image image){
+        myImage = image;
+    }
+
+    public Image getImage(){
+        return myImage;
     }
 
 }

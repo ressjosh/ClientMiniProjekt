@@ -7,6 +7,7 @@ import my_project.view.SpielInterface;
 import my_project.view.Verbindungsaufbau;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class ViewControll {
 
@@ -38,7 +39,7 @@ public class ViewControll {
     }
 
     public void auswahlKannGesendetWerden(){
-        //TODO SpielInterface
+        spielInterface.absendeBereit(true);
     }
 
     public void draussen(String grund){
@@ -54,7 +55,57 @@ public class ViewControll {
 
     public void zeitUpdate(String zeit){
         if (anwendungsstart.sichtbar()) anwendungsstart.setTimer(zeit);
-        //TODO SPIELINTERFACE TIMER
+        if(spielInterface.sichtbar()){
+            spielInterface.setTimer(zeit);
+        }
+        if(spielInterface.sichtbar() && Integer.parseInt(zeit) <= 0){
+            spielInterface.timerAblauf();
+        }
+        if(anwendungsstart.sichtbar() && Integer.parseInt(zeit) <= 0){
+            anwendungsstart.setVisibility(false);
+            spielInterface.setFensterVisible(true);
+        }
+    }
+
+    public void UebermittleWerte(String name, Image myImage){
+        gC.sendeNamen(name);
+        gC.setName(name);
+        gC.setImage(myImage);
+        spielInterface.meineAttribute();
+    }
+
+    public void ranking(String ranking){
+        spielInterface.setRanking(ranking);
+    }
+
+    public String getMeinName(){
+        return spieler.getName();
+    }
+
+    public Image getMyImage(){
+        return spieler.getImage();
+    }
+
+    public void setMeineAuswahl(String auswahl){
+        spieler.setMeineAuswahl(auswahl);
+    }
+
+    public void sendeMeineAuswahl(){
+        if(!spieler.getMeineAuswahl().equals("")){
+            gC.sendeAuswahl(spieler.getMeineAuswahl());
+        }
+    }
+
+    public String getMeineAuswahl(){
+        return spieler.getMeineAuswahl();
+    }
+
+    public void uebergebeGegner(){
+        spielInterface.setzeGegnerName(spieler.getMeinGegener());
+    }
+
+    public void uebergebeGegnerischeAuswahl(String s){
+        spielInterface.gegnerischeAuswahl(s);
     }
 
 }

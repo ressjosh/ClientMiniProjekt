@@ -19,7 +19,7 @@ public class SpielClient extends Client {
     @Override
     //Hier kommt die Nachricht an, muss aufgesplittet werden
     public void processMessage(String pMessage) {
-        aktuelleKommandos = pMessage.split("//$");
+        aktuelleKommandos = pMessage.split("\\$");
         System.out.println("AktuelleNachricht vom Server: ");
         System.out.println(pMessage);
         arbeiteKommandoAb();
@@ -33,14 +33,21 @@ public class SpielClient extends Client {
                 myControll.auswahlKannGesendetWerden();
             }
         }else if(aktuelleKommandos[0].equals("punkte")){
-            for(int i = 1; i < aktuelleKommandos.length; i= i +2){
-                meinSpieler.setAlleSpieler(aktuelleKommandos[i] + "§" + aktuelleKommandos[i+1]);
+            String tmp = "<html><body>Rangfolge:  <br/";
+            for(int i = 2; i < aktuelleKommandos.length; i= i +2){
+                meinSpieler.setAlleSpieler(aktuelleKommandos[i-1] + "§" + aktuelleKommandos[i]);
+                tmp += ">"+aktuelleKommandos[i-1] + "  " + aktuelleKommandos[i] + "<br/";
             }
+            tmp+= "</body></html>";
+            System.out.println(tmp);
+            myControll.rankingAktualisieren(tmp);
         }else if(aktuelleKommandos[0].equals("gegner")){
             if(aktuelleKommandos[1].equals("name")){
                 meinSpieler.setMeinGegener(aktuelleKommandos[2]);
+                myControll.uebergebeGegner();
             }else if(aktuelleKommandos[1].equals("auswahl")){
                 meinSpieler.setAuswahlGegner(aktuelleKommandos[2]);
+                myControll.uebergebeGegnerischeAuswahl(aktuelleKommandos[2]);
             }
         }else if(aktuelleKommandos[0].equals("status")){
             if(aktuelleKommandos[1].equals("rausgeworfen")){
