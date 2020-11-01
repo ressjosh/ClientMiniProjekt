@@ -33,10 +33,11 @@ public class SpielClient extends Client {
                 myControll.auswahlKannGesendetWerden();
             }
         }else if(aktuelleKommandos[0].equals("punkte")){
-            String tmp = "<html><body>Rangfolge:  <br/";
+            String tmp = "<html><body>Rangfolge:  <br/><br/";
             for(int i = 2; i < aktuelleKommandos.length; i= i +2){
+                if(i<=6) tmp+= ">"+ i/2 + ". <";
                 meinSpieler.setAlleSpieler(aktuelleKommandos[i-1] + "§" + aktuelleKommandos[i]);
-                tmp += ">"+aktuelleKommandos[i-1] + "  " + aktuelleKommandos[i] + "<br/";
+                tmp += ">   "+aktuelleKommandos[i-1] + "  " + aktuelleKommandos[i] + "<br/";
             }
             tmp+= "</body></html>";
             System.out.println(tmp);

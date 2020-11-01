@@ -27,6 +27,12 @@ public class SpielInterface {
     private JLabel myImage;
     private JButton sendButton;
     private JLabel derGegner;
+    private JPanel panel01;
+    private JPanel panel02;
+    private JPanel panel04;
+    private JPanel panel05;
+    private JPanel panel06;
+    private JPanel timerPanel;
     private JButton startButton;
     private JTextPane textPane1;
     private ViewControll vC;
@@ -73,16 +79,28 @@ public class SpielInterface {
         ImageIcon iimage = new ImageIcon(getClass().getResource("sendenButton.jpg"));
         auswahlAbschickenButton.setIcon(iimage);
 
-        timer.setFont(new Font("Arial", Font.BOLD, 40));
+        timer.setFont(new Font("Arial", Font.BOLD, 60));
+        timer.setForeground(Color.white);
         fenster = new JFrame("Lasst uns spielen");
         fenster.setContentPane(mainPanel);
         fenster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fenster.pack();
         fenster.setVisible(false);
-        fenster.setBounds(100,100,700,600);
+        fenster.setBounds(200,30,750,650);
+        fenster.setBackground(Color.DARK_GRAY);
+        mainPanel.setBackground(Color.darkGray);
+        panel01.setBackground(Color.darkGray);
+        panel02.setBackground(Color.darkGray);
+        panel04.setBackground(Color.darkGray);
+        panel05.setBackground(Color.darkGray);
+        panel06.setBackground(Color.darkGray);
+        timerPanel.setBackground(Color.red);
 
+        ranking.setForeground(Color.white);
         ranking.setFont(new Font("Arial", Font.BOLD, 20));
+        myName.setForeground(Color.white);
         myName.setFont(new Font("Arial", Font.BOLD, 20));
+        derGegner.setForeground(Color.white);
         derGegner.setFont(new Font("Arial", Font.BOLD, 20));
 
         auswahlAbschickenButton.setEnabled(false);
@@ -192,6 +210,9 @@ public class SpielInterface {
 
     public void setTimer(String zeit){
         timer.setText(zeit);
+        if(Integer.parseInt(zeit) < 10){
+             timer.setForeground(Color.black);
+        }
     }
 
     private void setAllWertungenVisible(boolean b){
@@ -284,6 +305,7 @@ public class SpielInterface {
         laserschwert.setBackground(Color.white);
         pistoleButton.setBackground(Color.white);
         wissenschaftButton.setBackground(Color.white);
+        timer.setForeground(Color.white);
     }
 
 }

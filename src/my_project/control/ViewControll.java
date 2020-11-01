@@ -50,7 +50,8 @@ public class ViewControll {
     }
 
     public void aussetzen(){
-        //TODO Button und so müssen erledigt werden
+        spielInterface.setzeGegnerName("aussetzen");
+        JOptionPane.showMessageDialog(null,"Diese Runde musst du leider aussetzen, gedulde dich, gleich geht es weiter!");
     }
 
     public void zeitUpdate(String zeit){
