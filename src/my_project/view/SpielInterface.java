@@ -33,6 +33,7 @@ public class SpielInterface {
     private JPanel panel05;
     private JPanel panel06;
     private JPanel timerPanel;
+    private JLabel ausgang;
     private JButton startButton;
     private JTextPane textPane1;
     private ViewControll vC;
@@ -306,6 +307,10 @@ public class SpielInterface {
         pistoleButton.setBackground(Color.white);
         wissenschaftButton.setBackground(Color.white);
         timer.setForeground(Color.white);
+    }
+
+    public void setzeAusgang(String s){
+        ausgang.setText("Letzte Runde: " + s);
     }
 
 }

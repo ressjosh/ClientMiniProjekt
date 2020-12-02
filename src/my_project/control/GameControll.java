@@ -75,4 +75,13 @@ public class GameControll {
    public void sendeAuswahl(String auswahl){
         spielClient.send("spiele$" + auswahl);
    }
+
+   public void spielende(){
+        spielClient.setSpielbeginn(true);
+
+   }
+
+   public void uebergebeAusgang(String s){
+        vC.uebergebeAusgabe(s);
+   }
 }

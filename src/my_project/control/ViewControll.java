@@ -3,6 +3,7 @@ package my_project.control;
 import my_project.model.SpielClient;
 import my_project.model.Spieler;
 import my_project.view.Anwendungsstart;
+import my_project.view.Endbildschirm;
 import my_project.view.SpielInterface;
 import my_project.view.Verbindungsaufbau;
 
@@ -17,6 +18,7 @@ public class ViewControll {
     private Verbindungsaufbau verbindungsaufbau;
     private Anwendungsstart anwendungsstart;
     private SpielInterface spielInterface;
+    private Endbildschirm endbildschirm;
 
     public ViewControll(GameControll gameControll) {
         verbindungsaufbau = new Verbindungsaufbau(this);
@@ -59,10 +61,10 @@ public class ViewControll {
         if(spielInterface.sichtbar()){
             spielInterface.setTimer(zeit);
         }
-        if(spielInterface.sichtbar() && Integer.parseInt(zeit) <= 0){
+        if(spielInterface.sichtbar() && Integer.parseInt(zeit) <= 1){
             spielInterface.timerAblauf();
         }
-        if(anwendungsstart.sichtbar() && Integer.parseInt(zeit) <= 0){
+        if(anwendungsstart.sichtbar() && Integer.parseInt(zeit) <= 1){
             anwendungsstart.setVisibility(false);
             spielInterface.setFensterVisible(true);
         }
@@ -107,6 +109,16 @@ public class ViewControll {
 
     public void uebergebeGegnerischeAuswahl(String s){
         spielInterface.gegnerischeAuswahl(s);
+    }
+
+    public void uebergebeAusgabe(String s){
+        spielInterface.setzeAusgang(s);
+    }
+
+    public void spielZuEnde(String first, String second, String third){
+        spielInterface.setFensterVisible(false);
+        endbildschirm.setVisible(true);
+        endbildschirm.siegerUebermittlung(first, second, third);
     }
 
 }
