@@ -97,12 +97,17 @@ public class SpielInterface {
         panel06.setBackground(Color.darkGray);
         timerPanel.setBackground(Color.red);
 
+
+        Font universalFont = new Font("Arial", Font.BOLD, 20);
         ranking.setForeground(Color.white);
-        ranking.setFont(new Font("Arial", Font.BOLD, 20));
+        ranking.setFont(universalFont);
         myName.setForeground(Color.white);
-        myName.setFont(new Font("Arial", Font.BOLD, 20));
+        myName.setFont(universalFont);
         derGegner.setForeground(Color.white);
-        derGegner.setFont(new Font("Arial", Font.BOLD, 20));
+        derGegner.setFont(universalFont);
+
+        ausgang.setForeground(Color.white);
+        ausgang.setFont(universalFont);
 
         auswahlAbschickenButton.setEnabled(false);
 
